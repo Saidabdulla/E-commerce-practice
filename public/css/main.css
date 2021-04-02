@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: #f4f7fd;
+}
+
+nav {
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+#lang-dropdown,
+.basket-orders {
+  outline: none !important;
+  border-radius: 5px;
+  margin-left: 15px;
+  padding: 7px 10px;
+  border: 1px solid #707071;
+  transition: 0.3s ease;
+  color: #707071;
+}
+
+#lang-dropdown:hover,
+#lang-dropdown:focus,
+.basket-orders:hover {
+  border-color: black;
+  color: black;
+}
+
+.basket-orders {
+  background: white;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* card customize */
+
+.custom-card {
+  background-color: white;
+  border: unset;
+  border-radius: 20px;
+  transition: 0.25s;
+}
+
+.custom-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-brand {
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.card-title-custom {
+  text-decoration: none;
+  margin-top: 5px;
+  font-size: 17px;
+}
+
+.card-title-custom a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-of-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.footer-of-card .card-price {
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 16px;
+}
+
+.footer-of-card .to-basket-btn {
+  margin-right: 25px;
+  margin-top: -3px;
+  cursor: pointer;
+}
+
+/* card end */
+
+footer {
+  width: 100%;
+  height: 70px;
+  background: #008dff;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+}
