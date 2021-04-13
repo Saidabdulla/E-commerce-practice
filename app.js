@@ -2,11 +2,18 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const mongoose = require('mongoose');
 
 // Import routes
 const mainRoute = require('./routes/main');
 
 const app = express();
+
+// connect to db
+mongoose.connect('mongodb://localhost/ecommerce', { useUnifiedTopology: true, useNewUrlParser: true })
+    .then(() => console.log('MongoDBga muvaffaqiyatli ulandik!'))
+    .catch((e) => console.log(e));
+
 
 // set view engine
 app.set('views', path.join(__dirname, 'views'));

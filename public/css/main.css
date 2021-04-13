@@ -43,6 +43,22 @@ nav {
   border: unset;
   border-radius: 20px;
   transition: 0.25s;
+  position: relative;
+  height: 401px;
+}
+
+.discount-badge {
+  top: 10px;
+  left: 10px;
+  background-color: #ff9800;
+  position: absolute;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+  padding: 1px 7px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .custom-card:hover {
@@ -71,16 +87,32 @@ nav {
   margin-bottom: 20px;
 }
 
+.footer-of-card .card-price-line {
+  text-decoration: line-through;
+  color: #af5679;
+  font-size: 12px;
+}
+
 .footer-of-card .card-price {
   font-weight: bold;
-  font-size: 18px;
-  margin-left: 16px;
+  font-size: 14px;
+  margin-left: 15px;
 }
 
 .footer-of-card .to-basket-btn {
-  margin-right: 25px;
-  margin-top: -3px;
   cursor: pointer;
+  transition: 0.25s;
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+}
+
+.footer-of-card .to-basket-btn svg {
+  transition: 0.25s;
+}
+
+.footer-of-card .to-basket-btn:hover > .to-basket-svg {
+  fill: #008dff;
 }
 
 /* card end */
