@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const phoneSchema = new mongoose.Schema({
+const compSchema = new mongoose.Schema({
     img: {
         type: String,
         required: true
@@ -39,4 +39,4 @@ const phoneSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('phones', phoneSchema);
+module.exports = mongoose.model('computers', compSchema);

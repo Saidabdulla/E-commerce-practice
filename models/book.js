@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const phoneSchema = new mongoose.Schema({
+const bookSchema = new mongoose.Schema({
     img: {
         type: String,
         required: true
@@ -9,8 +9,12 @@ const phoneSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    brand: {
+    author: {
         type: String,
+        required: true
+    },
+    category: {
+        type: Array,
         required: true
     },
     price: {
@@ -39,4 +43,4 @@ const phoneSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('phones', phoneSchema);
+module.exports = mongoose.model('books', bookSchema);
