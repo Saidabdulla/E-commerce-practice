@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Express-Shop | <%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/admin-layout.css" />
+  </head>
+  <body>
+    <div class="admin">
+      <div class="admin-left">
+        <a href="/" class="admin-top-left"> Express-Shop.uz </a>
+        <div class="admin-left-sidebar">
+          <div class="bs-example">
+            <div class="accordion" id="accordionExample">
+              <ul>
+                <li class="left-sidebar-title">MENU</li>
+
+                <li class="left-sidebar-item">
+                  <a href="/admin/phones" class="mm-active">
+                    <div class="d-inline-block icons-sm mr-1">
+                      <span class="uim-svg"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                        >
+                          <rect
+                            width="20"
+                            height="15"
+                            x="2"
+                            y="3"
+                            class="uim-tertiary"
+                            rx="3"
+                          ></rect>
+                          <path
+                            class="uim-primary"
+                            d="M16,21H8a.99992.99992,0,0,1-.832-1.55469l4-6a1.03785,1.03785,0,0,1,1.66406,0l4,6A.99992.99992,0,0,1,16,21Z"
+                          ></path></svg
+                      ></span>
+                    </div>
+
+                    <span>Phones</span>
+                  </a>
+                </li>
+
+                <li class="left-sidebar-item">
+                  <a href="/admin/computers">
+                    <div class="d-inline-block icons-sm mr-1">
+                      <span class="uim-svg"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                        >
+                          <rect
+                            width="20"
+                            height="15"
+                            x="2"
+                            y="3"
+                            class="uim-tertiary"
+                            rx="3"
+                          ></rect>
+                          <path
+                            class="uim-primary"
+                            d="M16,21H8a.99992.99992,0,0,1-.832-1.55469l4-6a1.03785,1.03785,0,0,1,1.66406,0l4,6A.99992.99992,0,0,1,16,21Z"
+                          ></path></svg
+                      ></span>
+                    </div>
+                    <span>computers</span>
+                  </a>
+                </li>
+
+                <li class="left-sidebar-item">
+                  <a href="/admin/books">
+                    <div class="d-inline-block icons-sm mr-1">
+                      <span class="uim-svg"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="1em"
+                        >
+                          <rect
+                            width="20"
+                            height="15"
+                            x="2"
+                            y="3"
+                            class="uim-tertiary"
+                            rx="3"
+                          ></rect>
+                          <path
+                            class="uim-primary"
+                            d="M16,21H8a.99992.99992,0,0,1-.832-1.55469l4-6a1.03785,1.03785,0,0,1,1.66406,0l4,6A.99992.99992,0,0,1,16,21Z"
+                          ></path></svg
+                      ></span>
+                    </div>
+                    <span>books</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-right">
+        <div class="admin-top-right">
+          <div class="admin-top-search-bar">
+            <button
+              type="button"
+              class="btn btn-sm px-3 mx-1 d-block"
+              style="font-size: 24px"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+                focusable="false"
+                width="1em"
+                height="1em"
+                style="
+                  -ms-transform: rotate(360deg);
+                  -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg);
+                "
+                preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M5 13l4 4l-1.4 1.42L1.18 12L7.6 5.58L9 7l-4 4h16v2H5m16-7v2H11V6h10m0 10v2H11v-2h10z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+            <div class="search">
+              <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+              <input type="search" placeholder="Search..." />
+            </div>
+          </div>
+          <div class="admin-top-right-bar ml-auto">
+            <div class="dropdown">
+              <button
+                class="user-dropdown-btn"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img src="/images/svg/avatar-1.jpg" alt="" />
+                Smith <i class="fas fa-angle-down"></i>
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu1"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Billing</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Lock screen</a>
+                <hr />
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-right-content">
+          <div class="page-title-box">
+            <div class="container-fluid">
+              <div class="row align-items-center">
+                <div class="col-md-12">
+                  <h4 class="page-title mb-1">Dashboard</h4>
+                  <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item">
+                      Welcome to Express-Shop.uz Dashboard
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="c_container">
+            <%- body %>
+
+            <footer class="footer">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-6">2021 © Express-Shop.uz</div>
+                  <div class="col-sm-6">
+                    <div class="text-sm-right">
+                      Crafted <i class="mdi mdi-heart text-danger"></i> by
+                      Saidabdulla.uz
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

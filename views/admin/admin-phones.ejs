@@ -1,0 +1,43 @@
+<div class="category">
+  <div class="d-flex">
+    <h3 class="d-block">PHONES</h3>
+    <button class="add-category-btn">
+      <a href="#">
+        <i class="fa fa-list-alt" aria-hidden="true"></i> Add Product
+      </a>
+    </button>
+  </div>
+
+  <table class="category-table">
+    <tr class="border-bottom border-top titles-row">
+      <td class="num-col">#</td>
+      <td class="name-col">Name</td>
+      <td class="action-col">Action</td>
+    </tr>
+
+    <% if(phones) { %>
+    <!--  -->
+    <% for(let i = phones.length - 1; i >= 0; i--) { %>
+    <tr class="border-bottom">
+      <td><%= i+1 %></td>
+      <td><%= phones[i].title %></td>
+      <td>
+        <div class="actions">
+          <div class="actions-eye-btn">
+            <a href="#"><i class="fas fa-eye"></i></a>
+          </div>
+          <div class="actions-pen-btn">
+            <a href="#"><i class="fas fa-pen"></i></a>
+          </div>
+          <div class="actions-trash-btn">
+            <a href="#"><i class="fas fa-trash"></i></a>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <% } %>
+    <!--  -->
+    <% } %>
+  </table>
+</div>
