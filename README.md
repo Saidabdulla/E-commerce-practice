@@ -2,7 +2,7 @@
 
 E-commerce project
 
-#TO-DO
+# TO-DO
 
 1. sharp js
 2. editor js
