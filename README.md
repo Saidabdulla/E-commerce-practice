@@ -1,4 +1,5 @@
-# e-commerse-practice
+# E-commerse-practice
+Simple e-commerce website 
 
 E-commerce project
 
