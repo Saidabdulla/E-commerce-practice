@@ -2,7 +2,7 @@
   <div class="d-flex">
     <h3 class="d-block">PHONES</h3>
     <button class="add-category-btn">
-      <a href="#">
+      <a href="/admin/phones/add">
         <i class="fa fa-list-alt" aria-hidden="true"></i> Add Product
       </a>
     </button>
@@ -11,6 +11,7 @@
   <table class="category-table">
     <tr class="border-bottom border-top titles-row">
       <td class="num-col">#</td>
+      <td>Image</td>
       <td class="name-col">Name</td>
       <td class="action-col">Action</td>
     </tr>
@@ -20,6 +21,13 @@
     <% for(let i = phones.length - 1; i >= 0; i--) { %>
     <tr class="border-bottom">
       <td><%= i+1 %></td>
+      <td>
+        <img
+          style="width: 50px; margin-right: 20px"
+          src="<%= phones[i].img %>"
+          alt=""
+        />
+      </td>
       <td><%= phones[i].title %></td>
       <td>
         <div class="actions">

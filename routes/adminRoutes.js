@@ -1,10 +1,15 @@
 const router = require('express').Router();
 
 // Import controllers
-const adminControllers = require('../controllers/adminControllers');
+const adminMainController = require('../controllers/adminMainController');
+const adminPhonesController = require('../controllers/adminPhonesController');
 
-router.get('/', adminControllers.main);
+// admin main route
+router.get('/', adminMainController.main);
 
-router.get('/phones', adminControllers.phones);
+// admin phones routes
+router.get('/phones', adminPhonesController.phones);
+router.get('/phones/add', adminPhonesController.phonesAddGet);
+router.post('/phones/add', adminPhonesController.phonesAddPost);
 
 module.exports = router;
