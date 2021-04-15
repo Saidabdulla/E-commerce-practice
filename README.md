@@ -1,7 +1,5 @@
-# E-commerse-practice
-Simple e-commerce website 
+# Simple e-commerce website 
 
-E-commerce project
 
 # TO-DO
 
