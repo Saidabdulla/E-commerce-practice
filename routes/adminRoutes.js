@@ -8,8 +8,13 @@ const adminPhonesController = require('../controllers/adminPhonesController');
 router.get('/', adminMainController.main);
 
 // admin phones routes
-router.get('/phones', adminPhonesController.phones);
-router.get('/phones/add', adminPhonesController.phonesAddGet);
-router.post('/phones/add', adminPhonesController.phonesAddPost);
+router.get('/phones', adminPhonesController.phones); // get All phones
+
+router.get('/phones/add', adminPhonesController.phonesAddGet); // get form for add new phone
+router.post('/phones/add', adminPhonesController.phonesAddPost); // new phone
+
+// router.get('/phones/read/:id', adminPhonesController.phonesReadById); get phones by ID
+
+
 
 module.exports = router;

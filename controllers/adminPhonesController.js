@@ -6,7 +6,7 @@ const PhoneModel = require('../models/phone');
 // Middleware
 const multerMiddleware = require('../middleware/multer');
 
-
+// get all phones
 exports.phones = async (req, res) => {
     try {
         const phones = await PhoneModel.find();
@@ -22,6 +22,7 @@ exports.phones = async (req, res) => {
     }
 }
 
+// get form for add new phone
 exports.phonesAddGet = async (req, res) => {
     try {
         res.status(200).render('./admin/admin-add-phone', { 
@@ -35,6 +36,7 @@ exports.phonesAddGet = async (req, res) => {
     }
 }
 
+// add new phone
 exports.phonesAddPost = async (req, res) => {
     multerMiddleware(req, res, async (err) => {
         if (err) {
@@ -54,7 +56,7 @@ exports.phonesAddPost = async (req, res) => {
                 discountPrice: req.body.discountPrice,
                 rating: req.body.rating,
                 isDiscount: req.body.isDiscount,
-                info: `lorem`
+                info: req.body.info
             });
 
             await newPhone.save();
@@ -67,3 +69,18 @@ exports.phonesAddPost = async (req, res) => {
     });
 }
 
+// read phones by id
+// exports.phonesReadById = async (req, res) => {
+//     try {
+//         const phone = await PhoneModel.findOne({_id: req.params.id});
+//         res.render('admin/admin-read-phone', {
+//             layout: 'admin/admin-read-phone',
+//             phone: phone
+//         });
+
+//         console.log(phone);
+//     }
+//     catch (e) {
+//         console.log(e);
+//     }
+// }
