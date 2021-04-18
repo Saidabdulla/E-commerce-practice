@@ -2,35 +2,35 @@ const path = require('path');
 const fs = require('fs');
 const mongoose = require('mongoose');
 
-// Import models 
-const PhoneModel = require('../models/phone');
+// Import models
+const ComputerModel = require('../models/computer');
 
 // Middleware
 const multerMiddleware = require('../middleware/multer');
 
-// get all phones
-exports.phones = async (req, res) => {
+// get all computers
+exports.computers = async (req, res) => {     
     try {
-        const phones = await PhoneModel.find();
-        
-        res.status(200).render('./admin/admin-products', { 
-            products: phones,
-            title: 'Admin | Phones',
-            productName: 'phones',
+        const comps = await ComputerModel.find();
+
+        res.status(200).render('./admin/admin-products', {
+            title: 'Admin | Computers',
+            productName: 'computers',
+            products: comps,
             layout: './admin/admin-layout' 
         });
-    } 
-    catch (err) {
-        console.log(err);
+    }
+    catch (e) {
+        console.log(e);
     }
 }
 
-// get form for add new phone
-exports.addPhoneGet = async (req, res) => {
+// get form for add new computer
+exports.addComputerGet = async (req, res) => {
     try {
         res.status(200).render('./admin/admin-add-product', { 
             title: 'Admin | Phones',
-            productName: 'phones',
+            productName: 'computers',
             layout: './admin/admin-add-product',
             msg: ''
         });
@@ -40,20 +40,20 @@ exports.addPhoneGet = async (req, res) => {
     }
 }
 
-// add new phone
-exports.addPhonePost = async (req, res) => {
+// add new computer
+exports.addComputerPost = async (req, res) => {
     multerMiddleware(req, res, async (err) => {
         if (err) {
-            return res.status(400).render('./admin/admin-add-phone', {
-                title: 'Admin | Phones',
-                productName: 'phones',
-                layout: './admin/admin-add-phone',
+            return res.status(400).render('./admin/admin-add-product', {
+                title: 'Admin | Computers',
+                productName: 'computers',
+                layout: './admin/admin-add-product',
                 msg: err
             });
         }
      
         try {
-            const newPhone = await new PhoneModel({
+            const newComp = await new ComputerModel({
                 img: `/uploads/${req.file.filename}`,
                 title: req.body.title,
                 brand: req.body.brand,
@@ -64,8 +64,8 @@ exports.addPhonePost = async (req, res) => {
                 info: req.body.info
             });
 
-            await newPhone.save();
-            res.status(201).redirect('/admin/phones');
+            await newComp.save();
+            res.status(201).redirect('/admin/computers');
         } 
         catch (e) {
             console.log(e);
@@ -74,15 +74,15 @@ exports.addPhonePost = async (req, res) => {
     });
 }
 
-// read phones by id
-exports.readPhone = async (req, res) => {
+// read computers by id
+exports.readComputer = async (req, res) => {
     try {
-        const phone = await PhoneModel.findOne({_id:req.params.id});
+        const comp = await ComputerModel.findOne({_id:req.params.id});
         res.status(200).render('admin/admin-read-product', {
             layout: 'admin/admin-layout',
-            product: phone,
-            title: 'Admin | Phones',
-            productName: 'phones'
+            product: comp,
+            title: 'Admin | Computers',
+            productName: 'computers'
         });
     }
     catch (e) {
@@ -90,17 +90,17 @@ exports.readPhone = async (req, res) => {
     }
 }
 
-// get form for update phone
-exports.updatePhoneGet = async (req, res) => {
-    const phone = await PhoneModel.findOne({_id: req.params.id});
+// get form for update computer
+exports.updateComputerGet = async (req, res) => {
+    const comp = await ComputerModel.findOne({_id: req.params.id});
 
     try {
         res.status(200).render('./admin/admin-update-product', { 
-            title: 'Admin | Phones',
+            title: 'Admin | Computers',
             layout: './admin/admin-update-product',
             msg: '',
-            product: phone,
-            productName: 'phones'
+            product: comp,
+            productName: 'computers'
         });
     } 
     catch (err) {
@@ -108,29 +108,28 @@ exports.updatePhoneGet = async (req, res) => {
     }
 }
 
-// update phone by id
-exports.updatePhonePost = async (req, res) => {
+// update computer by id
+exports.updateComputerPost = async (req, res) => {
 
-    const phone = await PhoneModel.findOne({_id: req.params.id});
+    const comp = await ComputerModel.findOne({_id: req.params.id});
 
     multerMiddleware(req, res, async (err) => {
         if (err) {
-            return res.status(400).render('./admin/admin-update-phone', { 
-                title: 'Admin | Phones',
-                layout: './admin/admin-update-phone',
+            return res.status(400).render('./admin/admin-update-product', { 
+                title: 'Admin | Computers',
+                layout: './admin/admin-update-product',
                 msg: err,
-                phone: phone,
-                productName: 'phones'
+                product: comp,
+                productName: 'computers'
             });
         }
      
-        try {
-            await fs.unlink(path.join(__dirname, '../public', phone.img), (err) => {
+        try {  
+            await fs.unlink(path.join(__dirname, '../public', comp.img), (err) => {
                 if(err) return console.log(err);
             });
-    
 
-            await PhoneModel.updateOne(
+            await ComputerModel.updateOne(
                 { _id: req.params.id },
                 {
                     $set: {
@@ -145,7 +144,7 @@ exports.updatePhonePost = async (req, res) => {
                     }
                 });
 
-            res.status(200).redirect('/admin/phones');
+            res.status(200).redirect('/admin/computers');
         } 
         catch (e) {
             console.log(e);
@@ -154,16 +153,16 @@ exports.updatePhonePost = async (req, res) => {
     });
 }
 
-// delete phone by id
-exports.deletePhone = async (req, res) => {
+// delete computer by id
+exports.deleteComputer = async (req, res) => {
     try {
-        const deletedPhone = await PhoneModel.findByIdAndDelete(req.params.id);
+        const deletedComp =  await ComputerModel.findByIdAndDelete(req.params.id);
 
-        await fs.unlink(path.join(__dirname, '../public', deletedPhone.img), (err) => {
+        await fs.unlink(path.join(__dirname, '../public', deletedComp.img), (err) => {
             if(err) return console.log(err);
         });
-
-        res.status(200).redirect('/admin/phones');
+        
+        res.status(200).redirect('/admin/computers');
     }
     catch (error) {
         console.log(error);   

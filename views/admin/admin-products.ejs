@@ -1,8 +1,10 @@
 <div class="category">
   <div class="d-flex">
-    <h3 class="d-block">PHONES</h3>
+    <h3 class="d-block" style="text-transform: uppercase">
+      <%= productName %>
+    </h3>
     <button class="add-category-btn">
-      <a href="/admin/phones/add">
+      <a href="/admin/<%= productName %>/add">
         <i class="fa fa-list-alt" aria-hidden="true"></i> Add Product
       </a>
     </button>
@@ -18,26 +20,26 @@
       <td class="action-col">Action</td>
     </tr>
 
-    <% if(phones) { %>
+    <% if(products) { %>
     <!--  -->
-    <% for(let i = phones.length - 1; i >= 0; i--) { %>
+    <% for(let i = products.length - 1; i >= 0; i--) { %>
     <tr class="border-bottom">
       <td><%= i+1 %></td>
       <td>
         <img
           style="width: 50px; margin-right: 20px"
-          src="<%= phones[i].img %>"
+          src="<%= products[i].img %>"
           alt=""
         />
       </td>
-      <td><%= phones[i].title %></td>
-      <% if (phones[i].isDiscount) { %>
-      <td><%= phones[i].discountPrice %></td>
+      <td><%= products[i].title %></td>
+      <% if (products[i].isDiscount) { %>
+      <td><%= products[i].discountPrice %></td>
       <% } else { %>
-      <td><%= phones[i].price %></td>
+      <td><%= products[i].price %></td>
       <% } %>
       <td>
-        <% if(phones[i].isDiscount){ %>
+        <% if(products[i].isDiscount){ %>
         <!--  -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,20 +80,20 @@
       <td>
         <div class="actions">
           <div class="actions-eye-btn">
-            <a href="/admin/phones/read/<%= phones[i]._id %>"
+            <a href="/admin/<%= productName %>/read/<%= products[i]._id %>"
               ><i class="fas fa-eye"></i
             ></a>
           </div>
           <div class="actions-pen-btn">
-            <a href="/admin/phones/update/<%= phones[i]._id %>"
+            <a href="/admin/<%= productName %>/update/<%= products[i]._id %>"
               ><i class="fas fa-pen"></i
             ></a>
           </div>
           <div class="actions-trash-btn">
             <a
               class="delete-product-btn"
-              data-id="<%= phones[i]._id %>"
-              href="/admin/phones/delete/<%= phones[i]._id %>"
+              data-id="<%= products[i]._id %>"
+              href="/admin/<%= productName %>/delete/<%= products[i]._id %>"
               ><i class="fas fa-trash"></i
             ></a>
           </div>

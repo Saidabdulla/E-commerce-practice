@@ -20,7 +20,10 @@
       <div class="row">
         <div class="col s2"></div>
         <div class="col s8">
-          <h4>Add Phone</h4>
+          <h4>
+            Update
+            <span style="text-transform: capitalize"><%= productName %></span>
+          </h4>
 
           <!-- Error message -->
           <% if(msg) { %>
@@ -37,8 +40,9 @@
           </div>
           <% } %>
           <!--  -->
+          <% if(product) { %>
           <form
-            action="/admin/phones/add"
+            action="/admin/<%= productName %>/update/<%= product._id %>"
             style="
               border: 2px solid #f0f4f8;
               border-radius: 10px;
@@ -70,6 +74,7 @@
                   name="title"
                   type="text"
                   placeholder="Title"
+                  value="<%= product.title %>"
                   class="validate"
                   required
                 />
@@ -83,6 +88,7 @@
                   type="text"
                   placeholder="Brand"
                   class="validate"
+                  value="<%= product.brand %>"
                   required
                 />
               </div>
@@ -95,6 +101,7 @@
                   type="text"
                   placeholder="Price"
                   class="validate"
+                  value="<%= product.price %>"
                   required
                 />
               </div>
@@ -109,6 +116,7 @@
                   min="0"
                   placeholder="Rating (0-5)"
                   class="validate"
+                  value="<%= product.rating %>"
                   required
                 />
               </div>
@@ -119,6 +127,28 @@
                 >Is discount?</label
               >
               <div style="margin-left: 11px; margin-top: 15px">
+                <% if(product.isDiscount) { %>
+                <label style="margin-right: 20px">
+                  <input
+                    class="with-gap"
+                    name="isDiscount"
+                    value="true"
+                    type="radio"
+                    checked
+                  />
+                  <span>Yes</span>
+                </label>
+                <label>
+                  <input
+                    class="with-gap"
+                    name="isDiscount"
+                    value="false"
+                    type="radio"
+                  />
+                  <span>No</span>
+                </label>
+
+                <% } else { %>
                 <label style="margin-right: 20px">
                   <input
                     class="with-gap"
@@ -136,8 +166,8 @@
                     type="radio"
                     checked
                   />
-                  <span>No</span>
-                </label>
+                  <span>No</span> </label
+                ><% } %>
               </div>
             </div>
             <!-- ds price -->
@@ -148,16 +178,15 @@
                   type="text"
                   placeholder="Discount price"
                   class="validate"
+                  value="<%= product.discountPrice %>"
                 />
               </div>
             </div>
             <!-- info -->
             <div class="row">
-              <textarea
-                id="editor"
-                name="info"
-                placeholder="Product info"
-              ></textarea>
+              <textarea id="editor" name="info" placeholder="Product info">
+                <%= product.info %>
+              </textarea>
             </div>
             <!-- submit -->
             <div class="row">
@@ -170,6 +199,7 @@
               </button>
             </div>
           </form>
+          <% } %>
         </div>
       </div>
     </div>
