@@ -31,7 +31,11 @@
         />
       </td>
       <td><%= phones[i].title %></td>
+      <% if (phones[i].isDiscount) { %>
+      <td><%= phones[i].discountPrice %></td>
+      <% } else { %>
       <td><%= phones[i].price %></td>
+      <% } %>
       <td>
         <% if(phones[i].isDiscount){ %>
         <!--  -->
@@ -79,7 +83,9 @@
             ></a>
           </div>
           <div class="actions-pen-btn">
-            <a href="#"><i class="fas fa-pen"></i></a>
+            <a href="/admin/phones/update/<%= phones[i]._id %>"
+              ><i class="fas fa-pen"></i
+            ></a>
           </div>
           <div class="actions-trash-btn">
             <a

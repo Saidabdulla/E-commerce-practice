@@ -23,7 +23,7 @@ exports.phones = async (req, res) => {
 }
 
 // get form for add new phone
-exports.phonesAddGet = async (req, res) => {
+exports.addPhoneGet = async (req, res) => {
     try {
         res.status(200).render('./admin/admin-add-phone', { 
             title: 'Admin | Phones',
@@ -37,7 +37,7 @@ exports.phonesAddGet = async (req, res) => {
 }
 
 // add new phone
-exports.phonesAddPost = async (req, res) => {
+exports.addPhonePost = async (req, res) => {
     multerMiddleware(req, res, async (err) => {
         if (err) {
             return res.status(400).render('./admin/admin-add-phone', {
@@ -70,7 +70,7 @@ exports.phonesAddPost = async (req, res) => {
 }
 
 // read phones by id
-exports.phonesReadById = async (req, res) => {
+exports.readPhone = async (req, res) => {
     try {
         const phone = await PhoneModel.findOne({_id:req.params.id});
         res.status(200).render('admin/admin-read-product', {
@@ -82,6 +82,63 @@ exports.phonesReadById = async (req, res) => {
     catch (e) {
         console.log(e);
     }
+}
+
+// get form for update phone
+exports.updatePhoneGet = async (req, res) => {
+    const phone = await PhoneModel.findOne({_id: req.params.id});
+
+    try {
+        res.status(200).render('./admin/admin-update-phone', { 
+            title: 'Admin | Phones',
+            layout: './admin/admin-update-phone',
+            msg: '',
+            phone: phone
+        });
+    } 
+    catch (err) {
+        console.log(err);
+    }
+}
+
+// update phone by id
+exports.updatePhonePost = async (req, res) => {
+
+    const phone = await PhoneModel.findOne({_id: req.params.id});
+
+    multerMiddleware(req, res, async (err) => {
+        if (err) {
+            return res.status(400).render('./admin/admin-update-phone', { 
+                title: 'Admin | Phones',
+                layout: './admin/admin-update-phone',
+                msg: err,
+                phone: phone
+            });
+        }
+     
+        try {
+            await PhoneModel.updateOne(
+                { _id: req.params.id },
+                {
+                    $set: {
+                        img: `/uploads/${req.file.filename}`,
+                        title: req.body.title,
+                        brand: req.body.brand,
+                        price: req.body.price,
+                        discountPrice: req.body.discountPrice,
+                        rating: req.body.rating,
+                        isDiscount: req.body.isDiscount,
+                        info: req.body.info
+                    }
+                });
+
+            res.status(200).redirect('/admin/phones');
+        } 
+        catch (e) {
+            console.log(e);
+        }   
+       
+    });
 }
 
 // delete phone by id
