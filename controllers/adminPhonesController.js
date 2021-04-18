@@ -70,17 +70,16 @@ exports.phonesAddPost = async (req, res) => {
 }
 
 // read phones by id
-// exports.phonesReadById = async (req, res) => {
-//     try {
-//         const phone = await PhoneModel.findOne({_id: req.params.id});
-//         res.render('admin/admin-read-phone', {
-//             layout: 'admin/admin-read-phone',
-//             phone: phone
-//         });
-
-//         console.log(phone);
-//     }
-//     catch (e) {
-//         console.log(e);
-//     }
-// }
+exports.phonesReadById = async (req, res) => {
+    try {
+        const phone = await PhoneModel.findOne({_id:req.params.id});
+        res.render('admin/admin-read-product', {
+            layout: 'admin/admin-layout',
+            product: phone,
+            title: 'Admin | Phones'
+        });
+    }
+    catch (e) {
+        console.log(e);
+    }
+}

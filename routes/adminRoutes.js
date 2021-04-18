@@ -13,7 +13,7 @@ router.get('/phones', adminPhonesController.phones); // get All phones
 router.get('/phones/add', adminPhonesController.phonesAddGet); // get form for add new phone
 router.post('/phones/add', adminPhonesController.phonesAddPost); // new phone
 
-// router.get('/phones/read/:id', adminPhonesController.phonesReadById); get phones by ID
+router.get('/phones/read/:id', adminPhonesController.phonesReadById); //get phones by ID
 
 
 
