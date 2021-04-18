@@ -73,7 +73,7 @@ exports.phonesAddPost = async (req, res) => {
 exports.phonesReadById = async (req, res) => {
     try {
         const phone = await PhoneModel.findOne({_id:req.params.id});
-        res.render('admin/admin-read-product', {
+        res.status(200).render('admin/admin-read-product', {
             layout: 'admin/admin-layout',
             product: phone,
             title: 'Admin | Phones'
@@ -81,5 +81,16 @@ exports.phonesReadById = async (req, res) => {
     }
     catch (e) {
         console.log(e);
+    }
+}
+
+// delete phone by id
+exports.deletePhone = async (req, res) => {
+    try {
+        await PhoneModel.findByIdAndDelete(req.params.id);
+        res.status(200).redirect('/admin/phones');
+    }
+    catch (error) {
+        console.log(error);   
     }
 }

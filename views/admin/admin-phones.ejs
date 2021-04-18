@@ -82,7 +82,12 @@
             <a href="#"><i class="fas fa-pen"></i></a>
           </div>
           <div class="actions-trash-btn">
-            <a href="#"><i class="fas fa-trash"></i></a>
+            <a
+              class="delete-product-btn"
+              data-id="<%= phones[i]._id %>"
+              href="/admin/phones/delete/<%= phones[i]._id %>"
+              ><i class="fas fa-trash"></i
+            ></a>
           </div>
         </div>
       </td>

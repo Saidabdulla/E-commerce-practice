@@ -14,7 +14,7 @@ router.get('/phones/add', adminPhonesController.phonesAddGet); // get form for a
 router.post('/phones/add', adminPhonesController.phonesAddPost); // new phone
 
 router.get('/phones/read/:id', adminPhonesController.phonesReadById); //get phones by ID
-
+router.get('/phones/delete/:id', adminPhonesController.deletePhone) // delete phone by ID
 
 
 module.exports = router;
