@@ -7,7 +7,7 @@ const BookModel = require('../models/book');
 
 exports.main = async (req, res) => { 
     try {
-        const phones = await PhoneModel.find();
+        const phones = await PhoneModel.find().limit(6).sort({ _id: -1 });
         const computers = await CompModel.find();
         const books = await BookModel.find();
 
