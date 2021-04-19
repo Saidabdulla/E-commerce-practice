@@ -48,7 +48,17 @@
           <!--  -->
           <% } %>
         </div>
-        <div class="__brand">Brand: <%= product.brand %></div>
+
+        <% if(productName === 'computers' || productName === 'phones' ) { %>
+          <div class="__brand">Brand: <%= product.brand %></div>
+        <% } else if(productName === 'books' ) { %>
+          <div class="__brand">Author: <%= product.author %></div>
+
+        <% for (cat of product.category) { %>
+          <a href="#" class="__category btn btn-primary"><%= cat %> </a>
+        <% } %>
+
+        <% } %>
         <div class="__date">Added date: <%= product.date.toLocaleString().slice(0, 10)  %></div>
     </div>
 

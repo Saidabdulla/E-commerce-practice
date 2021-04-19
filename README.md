@@ -2,8 +2,9 @@
 
 # TO-DO
 
+1. Books section (admin panel);
 1. sharp js
-2. view products section
-3. read products in admin panel
-4. update, delete
-5. auth
+1. view products section
+1. read products in admin panel
+1. update, delete
+1. auth

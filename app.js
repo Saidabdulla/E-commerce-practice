@@ -7,7 +7,10 @@ const expressLayouts = require('express-ejs-layouts');
 
 // Import routes
 const mainRoute = require('./routes/mainRoute');
-const adminRoutes = require('./routes/adminRoutes');
+const adminMainRoute = require('./routes/adminMainRoute');
+const adminPhonesRoute = require('./routes/adminPhonesRoute');
+const adminComputersRoute = require('./routes/adminComputersRoute');
+const adminBooksRoute = require('./routes/adminBooksRoute');
 
 const app = express();
 
@@ -31,7 +34,11 @@ app.use(morgan('tiny'));
 
 
 app.use('/', mainRoute);
-app.use('/admin', adminRoutes);
+app.use('/admin', adminMainRoute);
+app.use('/admin/phones', adminPhonesRoute);
+app.use('/admin/computers', adminComputersRoute);
+app.use('/admin/books', adminBooksRoute);
+
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server ${PORT}-portda ish boshladi!`));

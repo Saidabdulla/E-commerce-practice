@@ -78,6 +78,7 @@
                 />
               </div>
             </div>
+            <% if(productName === 'computers' || productName === 'phones' ) { %>
             <!-- brand -->
             <div class="row">
               <div class="input-field col s12">
@@ -90,6 +91,32 @@
                 />
               </div>
             </div>
+            <% } else if(productName === 'books' ) { %>
+            <!-- Author -->
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  name="author"
+                  type="text"
+                  placeholder="Author"
+                  class="validate"
+                  required
+                />
+              </div>
+            </div>
+            <!-- category -->
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  name="category"
+                  type="text"
+                  placeholder="Category (insert category with comma)"
+                  class="validate"
+                  required
+                />
+              </div>
+            </div>
+            <% } %>
             <!-- price -->
             <div class="row">
               <div class="input-field col s12">
